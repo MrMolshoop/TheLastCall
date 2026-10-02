@@ -48,7 +48,7 @@ details.sin .ti{font-size:1.25rem;font-weight:bold;color:var(--ac)}
 details.sin .bd{padding:0 16px 8px;border-top:1px solid var(--ln)}
 .bar{display:flex;gap:8px;margin:8px 0}.bar button{font:.85rem sans-serif;background:var(--card);color:var(--fg);border:1px solid var(--ln);border-radius:8px;padding:6px 12px;cursor:pointer}
 @media print{#tabs,.bar{display:none}.panel{display:block!important}details .bd{display:block}}
-.mapf{width:100%;height:480px;border:0;border-radius:10px;display:block}.qr .row{display:flex;gap:12px;align-items:center}.qr .rm{flex:1 1 0;min-width:0;width:100%}.qr .rq{flex:0 0 120px}.qr .rq img{width:120px}</style></head><body><main>
+.mapf{width:100%;height:480px;border:0;border-radius:10px;display:block}.qr .row{display:flex;gap:12px;align-items:center}.qr .rm{flex:1 1 0;min-width:0;width:100%}.qr .rq{flex:0 0 120px}.qr .rq img{width:120px}.zl{display:none;text-align:center;margin-top:20px}.locked .zl{display:block}.locked .zc{display:none}#tabs button.lk span::after{content:"🔒";font-size:.7rem}@media print{.locked .zc{display:none!important}.locked .zl{display:block}}</style></head><body><main>
 
 <section class="cover">
 <div class="big">😇 🔥 😈</div>
@@ -123,7 +123,7 @@ details.sin .bd{padding:0 16px 8px;border-top:1px solid var(--ln)}
 <tr><td>7</td><td>Lust</td><td>Rood zakdoekje</td><td>Kuisheid</td><td>Priesterboord</td></tr>
 </table></div>
 
-</section><section class="panel" id="p-zonden"><h2>😈 De zonden, speeches &amp; opdrachten</h2>
+</section><section class="panel" id="p-zonden"><div class="zl card warn"><b>🔒 Nog even geduld…</b><br>Deze tab opent op 4 oktober.</div><div class="zc"><h2>😈 De zonden, speeches &amp; opdrachten</h2>
 
 <div class="bar"><button onclick="tg(true)">Alles open</button><button onclick="tg(false)">Alles dicht</button></div>
 <details class="card sin"><summary><span class="ti">Woede</span><span class="meta">📍 Tijdens paintball</span></summary><div class="bd">
@@ -184,9 +184,10 @@ details.sin .bd{padding:0 16px 8px;border-top:1px solid var(--ln)}
 </div></details><h2>🎁 Cadeau</h2>
 <div class="card sig">Na het inlossen van al zijn zonden:<br><b>een oorkonde, ondertekend door de groep, in tweevoud.</b></div>
 <p class="sig">Tot dan! 🍻</p>
-</section></main><script>
+</div></section></main><script>
 function tg(o){document.querySelectorAll('details.sin').forEach(function(d){d.open=o})}
 function show(k){document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id==='p-'+k)});document.querySelectorAll('#tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.t===k)});try{history.replaceState(null,'','#'+k)}catch(e){}window.scrollTo(0,0)}
+var UNLOCK=new Date(2026,9,4,0,0,0);function chk(){var l=Date.now()<UNLOCK;document.getElementById('p-zonden').classList.toggle('locked',l);document.querySelector('#tabs button[data-t="zonden"]').classList.toggle('lk',l)}chk();setInterval(chk,60000);document.addEventListener('visibilitychange',chk);
 document.querySelectorAll('#tabs button').forEach(function(b){b.onclick=function(){show(b.dataset.t)}});
 var h=(location.hash||'').slice(1);show(document.getElementById('p-'+h)?h:'plan');
 </script><script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(){})}</script></body></html>
